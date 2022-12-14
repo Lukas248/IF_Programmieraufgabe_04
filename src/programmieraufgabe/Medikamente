@@ -12,4 +12,22 @@ public class Medikamente {
 	  this.anzahl = anzahl;
   }
 
+   public void setName(String name) {
+
+        this.name = name;
+
+    }
+
+    public void setPreis(Double preis) {
+
+        this.preis = preis;
+
+    }
+
+    public void setAnzahl(Int anzahl) {
+
+        this.anzahl = anzahl;
+
+    }
+
 }
