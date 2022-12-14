@@ -22,18 +22,19 @@ public class MedikamenteKonsole {
 			int anza;
 			double pre;
 			System.out.println("Geben Sie den Name des Medikament");
-			sca1 = scanner.nextLine();
+			name = scanner.nextLine();
 			// Methode für Name
 			System.out.println("Geben Sie den Kategorie des Medikament an");
-			sca1 = scanner.nextLine();
+			kategorie = scanner.nextLine();
 			//Methode für Kategorie
 			System.out.println("Geben Sie den Anzahl des Medikament an");
-			anza = scanner.nextInt();
+			anzahl = scanner.nextInt();
 			//Methode für Anzahl
-			System.out.println("Geben Sie den Anzahl des Medikament an");
-			pre = scanner.nextDouble();
+			System.out.println("Geben Sie den Preis des Medikament an");
+			preis = scanner.nextDouble();
 			//Methode für Preis
-			medikament =  new Medikamente(null, null, 0, 0);
+				
+			
 			break;
 		case 2:
 			String sca2;
