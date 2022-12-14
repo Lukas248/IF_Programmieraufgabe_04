@@ -1,4 +1,4 @@
-package paket_wochentage;
+package programmieraufgabe;
 
 import java.util.Scanner;
 
