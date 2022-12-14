@@ -2,6 +2,7 @@ package programmieraufgabe;
 
 public class Medikamente {
   private String name;
+  private int id;
   private String kategorie;
   private double preis;
   private int anzahl;
@@ -78,7 +79,7 @@ public class Medikamente {
     }
 
     public String getId() {
-        return null;
+        return id;
     }
 
 }
