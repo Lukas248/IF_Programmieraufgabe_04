@@ -55,7 +55,7 @@ public class Medikamente {
 
     }
 
-    public int getKategorie() {
+    public String getKategorie() {
 
       return kategorie;
 
