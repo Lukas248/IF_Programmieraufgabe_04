@@ -61,4 +61,20 @@ public class Medikamente {
 
     }
 
+    public void einkauf(int einkauf) {
+
+      anzahl = anzahl + 1;
+
+    }
+
+    public void verkauf(int verkauf) {
+
+      if(anzahl <= verkauf) {
+
+        anzahl = anzahl - verkauf;
+
+      }
+
+    }
+
 }
