@@ -79,7 +79,7 @@ public class Medikamente {
 
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
