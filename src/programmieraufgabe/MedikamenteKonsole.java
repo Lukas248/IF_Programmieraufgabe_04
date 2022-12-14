@@ -3,7 +3,7 @@ package programmieraufgabe;
 import java.util.Scanner;
 
 public class MedikamenteKonsole {
-	private static Medikamente medikament;
+	private static MedikamentenAnwendung anwendung;
 	public static void main(String[] args) {
 		
 		int sca;
@@ -18,14 +18,16 @@ public class MedikamenteKonsole {
 		sca = scanner.nextInt();
 		switch (sca) {
 		case 1:
-			String sca1;
-			int anza;
-			double pre;
+			String name;
+			int anzahl;
+			double preis;
+			String kategorie;
 			System.out.println("Geben Sie den Name des Medikament");
-			name = scanner.nextLine();
+			
+			name = scanner.next();
 			// Methode für Name
 			System.out.println("Geben Sie den Kategorie des Medikament an");
-			kategorie = scanner.nextLine();
+			kategorie = scanner.next();
 			//Methode für Kategorie
 			System.out.println("Geben Sie den Anzahl des Medikament an");
 			anzahl = scanner.nextInt();
@@ -34,7 +36,7 @@ public class MedikamenteKonsole {
 			preis = scanner.nextDouble();
 			//Methode für Preis
 				
-			
+			anwendung.anlegen(name, kategorie, preis, anzahl);
 			break;
 		case 2:
 			String sca2;
