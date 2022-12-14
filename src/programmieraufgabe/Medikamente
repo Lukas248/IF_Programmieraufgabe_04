@@ -5,6 +5,7 @@ public class Medikamente {
   private String kategorie;
   private double preis;
   private int anzahl;
+
   public Medikamente (String name, String kategorie, double preis, int anzahl) {
 	  this.name = name;
 	  this.kategorie = kategorie;
@@ -18,15 +19,45 @@ public class Medikamente {
 
     }
 
-    public void setPreis(Double preis) {
+    public void setPreis(double preis) {
 
         this.preis = preis;
 
     }
 
-    public void setAnzahl(Int anzahl) {
+    public void setAnzahl(int anzahl) {
 
         this.anzahl = anzahl;
+
+    }
+
+    public void setKategorie(String kategorie) {
+
+        this.kategorie = kategorie;
+
+    }
+
+    public String getName() {
+
+      return name;
+
+    }
+
+    public double getPreis() {
+
+      return preis;
+
+    }
+
+    public int getAnzahl() {
+
+      return anzahl;
+
+    }
+
+    public int getKategorie() {
+
+      return kategorie;
 
     }
 
