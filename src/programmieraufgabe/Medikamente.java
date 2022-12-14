@@ -77,4 +77,8 @@ public class Medikamente {
 
     }
 
+    public String getId() {
+        return null;
+    }
+
 }

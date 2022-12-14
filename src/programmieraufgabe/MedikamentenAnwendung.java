@@ -10,14 +10,20 @@ public class MedikamentenAnwendung {
 
         medikament = new Medikamente(name, kategorie, preis, anzahl);
 
-        try (InputStream eingabe = new FileInputStream(new File("./dateien/medikamente.txt"))) {
+        FileWriter eingabe;
+        File datei = new File("/dateien/medikamente.txt");
 
-            int zeichen;
-            while((zeichen = eingabe.read()) != -1) {
+        try {
 
-                System.out.print(zeichen);
-
-            }
+            eingabe = new FileWriter(datei, true);
+            eingabe.write("Id: "+ medikament.getId());
+            eingabe.write("Name: " + medikament.getName());
+            eingabe.write("Kategorie: " + medikament.getKategorie());
+            eingabe.write("Preis: " + medikament.getPreis() + " €");
+            eingabe.write("Anzahl: " + medikament.getAnzahl() + " Stück");
+            eingabe.write(System.getProperty("line.separator"));
+            eingabe.flush();
+            eingabe.close();
 
         }
         catch(IOException e) {
