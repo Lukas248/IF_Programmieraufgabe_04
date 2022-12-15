@@ -2,7 +2,7 @@ package programmieraufgabe;
 
 public class Medikamente {
   private String name;
-  private int id = 1000;
+  private static int id = 1000;
   private String kategorie;
   private double preis;
   private int anzahl;

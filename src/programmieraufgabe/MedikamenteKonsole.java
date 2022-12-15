@@ -3,9 +3,12 @@ package programmieraufgabe;
 import java.util.Scanner;
 
 public class MedikamenteKonsole {
-	private static MedikamentenAnwendung anwendung;
 	public static void main(String[] args) {
 		
+
+		MedikamentenAnwendung anwendung = new MedikamentenAnwendung();
+		
+
 		int sca;
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Medikamente Menü");
@@ -35,8 +38,9 @@ public class MedikamenteKonsole {
 			System.out.println("Geben Sie den Preis des Medikament an");
 			preis = scanner.nextDouble();
 			//Methode für Preis
-				
+			
 			anwendung.anlegen(name, kategorie, preis, anzahl);
+
 			break;
 		case 2:
 			String sca2;

@@ -11,17 +11,17 @@ public class MedikamentenAnwendung {
         medikament = new Medikamente(name, kategorie, preis, anzahl);
 
         FileWriter eingabe;
-        File datei = new File("/dateien/medikamente.txt");
+        File datei = new File("dateien/medikamente.txt");
+
 
         try {
 
             eingabe = new FileWriter(datei, true);
-            eingabe.write("Id: "+ medikament.getId());
-            eingabe.write("Name: " + medikament.getName());
-            eingabe.write("Kategorie: " + medikament.getKategorie());
-            eingabe.write("Preis: " + medikament.getPreis() + " €");
-            eingabe.write("Anzahl: " + medikament.getAnzahl() + " Stück");
-            eingabe.write(System.getProperty("line.separator"));
+            eingabe.write("Id: "+ medikament.getId() + " ");
+            eingabe.write("Name: " + medikament.getName()  + " ");
+            eingabe.write("Kategorie: " + medikament.getKategorie()  + " ");
+            eingabe.write("Preis: " + medikament.getPreis() + " € ");
+            eingabe.write("Anzahl: " + medikament.getAnzahl() + " Stück \n");
             eingabe.flush();
             eingabe.close();
 
@@ -33,7 +33,6 @@ public class MedikamentenAnwendung {
         }
 
     }
-
 
 }
 
