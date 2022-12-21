@@ -1,6 +1,7 @@
 package programmieraufgabe;
 
 public class Medikamente {
+
   private String name;
   private static int id = 1000;
   private String kategorie;

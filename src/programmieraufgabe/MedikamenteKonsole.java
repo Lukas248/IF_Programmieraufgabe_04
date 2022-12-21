@@ -57,7 +57,7 @@ public class MedikamenteKonsole {
 					case 2:
 						String sca2;
 						String medi;
-						int id;
+						String id;
 						int such;
 						System.out.println("Unter was wollen Sie suchen?");
 						System.out.println("1. Medikamenten-ID");
@@ -65,7 +65,8 @@ public class MedikamenteKonsole {
 						such = scanner.nextInt();
 						if(such == 1){
 							System.out.println("Geben Sie die ID des Gesuchten Medikament");
-							id = scanner.nextInt();
+							id = scanner.nextLine();
+							anwendung.suchen(id);
 						}
 						else if(such == 2){
 							System.out.println("Geben Sie den Namen des Gesuchten Medikament");
