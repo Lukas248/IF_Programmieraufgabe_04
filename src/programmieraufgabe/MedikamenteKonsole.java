@@ -59,6 +59,7 @@ public class MedikamenteKonsole {
 						String medi;
 						String id;
 						int such;
+						
 						System.out.println("Unter was wollen Sie suchen?");
 						System.out.println("1. Medikamenten-ID");
 						System.out.println("2. Medikamenten-Name");
