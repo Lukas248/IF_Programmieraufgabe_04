@@ -11,7 +11,7 @@ public class MedikamenteKonsole {
 
 		int sca;
 		String again = "z";
-		Scanner scanner = new Scanner(System.in);
+		try (Scanner scanner = new Scanner(System.in)) {
 			while(again == "z"){
 				System.out.println("Medikamente Menü");
 				System.out.println("1. Ein neues Medikament anlegen");
@@ -55,8 +55,6 @@ public class MedikamenteKonsole {
 
 						break;
 					case 2:
-						String sca2;
-						String medi;
 						String id;
 						int such;
 						
@@ -66,12 +64,11 @@ public class MedikamenteKonsole {
 						such = scanner.nextInt();
 						if(such == 1){
 							System.out.println("Geben Sie die ID des Gesuchten Medikament");
-							id = scanner.nextLine();
+							id = scanner.next();
 							anwendung.suchen(id);
 						}
 						else if(such == 2){
 							System.out.println("Geben Sie den Namen des Gesuchten Medikament");
-							sca2 = scanner.next();
 						}
 						else{
 							System.out.println("Falsche Eingabe.");
@@ -106,6 +103,7 @@ public class MedikamenteKonsole {
 						break;
 			
 			}
+		}
 		}	
 	}
 

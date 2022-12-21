@@ -3,14 +3,14 @@ package programmieraufgabe;
 public class Medikamente {
 
   private String name;
-  private static int id = 1000;
+  private int id = 1000;
   private String kategorie;
   private double preis;
   private int anzahl;
 
-  public Medikamente (String name, String kategorie, double preis, int anzahl) {
+  public Medikamente (int id, String name, String kategorie, double preis, int anzahl) {
 	  this.name = name;
-	  id++;
+	  this.id = this.id + id;
 	  this.kategorie = kategorie;
 	  this.preis = preis;
 	  this.anzahl = anzahl;

@@ -1,1 +1,2 @@
-Id: 1001 Name: Test Kategorie: Test Preis: 10.0 € Anzahl: 10 Stück 
+Id: 1000 Name: Test Kategorie: Test Preis: 1.0 € Anzahl: 1 Stück 
+Id: 1001 Name: Test Kategorie: Test Preis: 1.0 € Anzahl: 10 Stück 

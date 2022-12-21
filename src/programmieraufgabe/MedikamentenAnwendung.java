@@ -7,13 +7,25 @@ public class MedikamentenAnwendung {
   
     Medikamente medikament;
     File verzeichnis;
+    
+    int anzahl = 0;
 
-    public void anlegen(String name, String kategorie, double preis, int anzahl) {
+    public void anlegen(String name, String kategorie, double preis, int stueck) {
 
-        medikament = new Medikamente(name, kategorie, preis, anzahl);
-
+        
         FileWriter eingabe;
         verzeichnis = new File("dateien/medikamente.txt");
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(verzeichnis))) {
+            while (reader.readLine() != null) {
+              anzahl++;
+            }
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
+
+
+        medikament = new Medikamente(anzahl,name, kategorie, preis, stueck);
 
 
         try {
@@ -63,7 +75,7 @@ public class MedikamentenAnwendung {
 
     else {
 
-      System.out.println("Der angegebene Pfad ist kein Verzeichnis.");
+    System.out.println("Der angegebene Pfad ist kein Verzeichnis.");
 
     }
 
