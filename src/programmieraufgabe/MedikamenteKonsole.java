@@ -13,6 +13,7 @@ public class MedikamenteKonsole {
 		String again = "z";
 		Scanner scanner = new Scanner(System.in);
 			while(again == "z"){
+
 				System.out.println("Medikamente Menü");
 				System.out.println("1. Ein neues Medikament anlegen");
 				System.out.println("2. Ein Medikament suchen");
@@ -27,32 +28,38 @@ public class MedikamenteKonsole {
 						int anzahl;
 						double preis;
 						String kategorie;
-						String eingabe = "y";
-						while(eingabe == "y"){
+						String wiederhol = "y";
+
+						while(wiederhol.equals("y")){
 							System.out.println("Geben Sie den Name des Medikament");
-			
 							name = scanner.next();
-							// Methode für Name
+
 							System.out.println("Geben Sie den Kategorie des Medikament an");
 							kategorie = scanner.next();
-							//Methode für Kategorie
+
 							System.out.println("Geben Sie den Anzahl des Medikament an");
 							anzahl = scanner.nextInt();
-							//Methode für Anzahl
+
 							System.out.println("Geben Sie den Preis des Medikament an");
 							preis = scanner.nextDouble();
-							//Methode für Preis
 			
-							anwendung.anlegen(name, kategorie, preis, anzahl);	
-
-							System.out.println("Wenn Sie ein weiteres Medikament eingeben wollen, dann geben Sie 'y' ein.");
-							System.out.println("Wenn Sie kein Medikament weiter angeben wollen, dann geben Sie 'n' ein.");
-							eingabe = scanner.next();				
+							anwendung.anlegen(name, kategorie, preis, anzahl);
+							wiederhol = "w";	
+							while(wiederhol == "w"){
+								System.out.println("Wenn Sie ein weiteres Medikament eingeben wollen, dann geben Sie 'y' ein.");
+								System.out.println("Wenn Sie kein Medikament weiter angeben wollen, dann geben Sie 'n' ein.");
+								wiederhol = scanner.next();
+								if((wiederhol.equals("y"))){
+								}
+								else if(wiederhol.equals("n")){
+									wiederhol="b";
+								}
+								else{
+									System.out.println("Falsche Eingabe.");
+									System.out.println();
+								}
+							}			
 						}
-						System.out.println("Wollen Sie zurück zum Menü , dann geben Sie 'z' ein.");
-						System.out.println("Wenn Sie das Programm beenden wollen, dann geben Sie 'e' ein.");
-						scanner.next();
-
 						break;
 					case 2:
 						String sca2;
@@ -102,6 +109,7 @@ public class MedikamenteKonsole {
 					case 4:
 						System.out.println("Sie haben das Programm beendet.");
 						System.out.println("Einen wunderschönen Tag noch.");
+						again = "b";
 						break;
 			
 			}
