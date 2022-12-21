@@ -1,32 +1,24 @@
 package programmieraufgabe;
 
 import java.io.*;
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class MedikamentenAnwendung {
   
     Medikamente medikament;
-    File verzeichnis;
-    
-    int anzahl = 0;
+    File verzeichnis = new File("dateien/medikamente.txt");
+    FileWriter eingabe;
+    public ArrayList<Medikamente> medikamente = new ArrayList<>();
 
     public void anlegen(String name, String kategorie, double preis, int stueck) {
 
         
-        FileWriter eingabe;
-        verzeichnis = new File("dateien/medikamente.txt");
+       
+        
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(verzeichnis))) {
-            while (reader.readLine() != null) {
-              anzahl++;
-            }
-          } catch (IOException e) {
-            e.printStackTrace();
-          }
+        medikament = new Medikamente(medikamente.size()  , name, kategorie, preis, stueck);
 
-
-        medikament = new Medikamente(anzahl,name, kategorie, preis, stueck);
-
+        medikamente.add(medikament);
 
         try {
 
@@ -50,40 +42,49 @@ public class MedikamentenAnwendung {
 
     public void suchen(String id) {
 
-        if(verzeichnis.isDirectory()) {
+        
+        try (BufferedReader reader = new BufferedReader(new FileReader("dateien/medikamente.txt"))) {
+            String zeile;
+            while ((zeile = reader.readLine()) != null) {
 
-            File[] dateien = verzeichnis.listFiles();
+                if(zeile.contains(id)) {
 
-            for (File datei : dateien) {
-            
-                try {
-                    Scanner dateiScanner = new Scanner(datei);
-                    while (dateiScanner.hasNextLine()) {
-                    String zeile = dateiScanner.nextLine();
-                        if (zeile.contains(id)) {
-                            System.out.println("Datei gefunden: " + datei.getName());
-                            break;
-                        }
-                    }
-                dateiScanner.close();
+                    System.out.println(zeile);
 
-                } catch (FileNotFoundException e) {
-                    System.out.println("Die Datei konnte nicht gefunden werden.");
+
                 }
+
+
             }
-      }
-
-    else {
-
-    System.out.println("Der angegebene Pfad ist kein Verzeichnis.");
-
-    }
+          } catch (IOException e) {
+            System.out.println("Fehler beim Lesen der Datei: " + e.getMessage());
+          }
 
         
 
     }
 
+    public void einkaufen(int id, int stueck) throws IOException {
 
+        medikamente.get(id-1000).einkauf(stueck);
+
+        for (Medikamente i : medikamente) {
+            
+            verzeichnis.delete();
+
+            eingabe = new FileWriter(verzeichnis, true);
+            eingabe.write("Id: "+ i.getId() + " ");
+            eingabe.write("Name: " + i.getName()  + " ");
+            eingabe.write("Kategorie: " + i.getKategorie()  + " ");
+            eingabe.write("Preis: " + i.getPreis() + " € ");
+            eingabe.write("Anzahl: " + i.getAnzahl() + " Stück \n");
+            eingabe.flush();
+            eingabe.close();
+
+        }
+
+
+    }
 
 
 }

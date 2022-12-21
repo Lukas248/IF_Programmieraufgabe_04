@@ -1,5 +1,7 @@
 package programmieraufgabe;
 
+import java.util.ArrayList;
+
 public class Medikamente {
 
   private String name;
@@ -7,6 +9,7 @@ public class Medikamente {
   private String kategorie;
   private double preis;
   private int anzahl;
+
 
   public Medikamente (int id, String name, String kategorie, double preis, int anzahl) {
 	  this.name = name;
@@ -66,7 +69,7 @@ public class Medikamente {
 
     public void einkauf(int einkauf) {
 
-      anzahl = anzahl + 1;
+      anzahl = anzahl + einkauf;
 
     }
 
