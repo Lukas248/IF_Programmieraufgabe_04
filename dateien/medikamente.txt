@@ -1,2 +1,2 @@
-Id: 1001 Name: Test Kategorie: Test Preis: 10.0 � Anzahl: 10 St�ck 
-Id: 1001 Name: Test Kategorie: Test Preis: 10.0 � Anzahl: 10 St�ck 
+Id: 1000 Name: Test Kategorie: Test Preis: 1.0 � Anzahl: 1 St�ck 
+Id: 1001 Name: Test Kategorie: Test Preis: 1.0 � Anzahl: 10 St�ck 
