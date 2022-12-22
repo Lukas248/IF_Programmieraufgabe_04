@@ -1,7 +1,5 @@
 package programmieraufgabe;
 
-import java.util.ArrayList;
-
 public class Medikamente {
 
   private String name;
