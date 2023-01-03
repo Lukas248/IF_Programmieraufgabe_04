@@ -2,3 +2,7 @@
 Id: 1001 Name: Test Kategorie: Test Preis: 10.0 Euro Anzahl: 10 Stueck 
 Id: 1002 Name: Test Kategorie: Test Preis: 10.0 Euro Anzahl: 10 Stueck 
 Id: 1003 Name: Test Kategorie: Test Preis: 10.0 Euro Anzahl: 10 Stueck 
+
+Id: 1005 Name: Test7 Kategorie: Wambo Preis: 17.0 Euro Anzahl: 17 Stueck 
+Id: 1005 Name: Test7 Kategorie: Wambo Preis: 17.0 Euro Anzahl: 17 Stueck 
+Id: 1007 Name: Test Kategorie: K Preis: 12.0 Euro Anzahl: 13 Stueck 

@@ -8,18 +8,22 @@ public class MedikamenteKonsole {
 		
 
 		MedikamentenAnwendung anwendung = new MedikamentenAnwendung();
-		
+		String a;
 		String name;
 		int anzahl;
 		double preis;
 		String kategorie;
 		int auswahl;
 		boolean wiederhol = true;
+		boolean wiederhol2 = true;
 		boolean fehler = true;
 
 		try (Scanner scanner = new Scanner(System.in)) {
-			while(wiederhol){
-
+			while(wiederhol2){
+				
+				wiederhol = true;
+				fehler = true;
+				
 				System.out.println("Medikamente Menü");
 				System.out.println("1. Ein neues Medikament anlegen");
 				System.out.println("2. Ein Medikament suchen");
@@ -51,14 +55,14 @@ public class MedikamenteKonsole {
 
 								System.out.println("Wenn Sie ein weiteres Medikament eingeben wollen, dann geben Sie 'y' ein.");
 								System.out.println("Wenn Sie kein Medikament weiter angeben wollen, dann geben Sie 'n' ein.");
-							
-								if(scanner.next().equals("y")){
+								a = scanner.next();
+								if(a.equals("y")){
 
 									wiederhol = true;
 									fehler = false;
 
 								}
-								else if(scanner.next().equals("n")){
+								else if(a.equals("n")){
 									wiederhol=false;
 									fehler = false;
 								}
@@ -77,27 +81,54 @@ public class MedikamenteKonsole {
 						String id;
 						int such;
 						
-						while(fehler) {
+						while(wiederhol) {
 
 							System.out.println("Unter was wollen Sie suchen?");
 							System.out.println("1. Medikamenten-ID");
 							System.out.println("2. Medikamenten-Name");
 							such = scanner.nextInt();
+
 							if(such == 1){
 								System.out.println("Geben Sie die ID des Gesuchten Medikament");
 								id = scanner.next();
 								anwendung.suchen(id);
-								fehler = false;
-							}
-							else if(such == 2){
-								System.out.println("Geben Sie den Namen des Gesuchten Medikament");
-								fehler = false;
-							}
-							else{
-								System.out.println("Falsche Eingabe.");
 								fehler = true;
 							}
 
+							else if(such == 2){
+								System.out.println("Geben Sie den Namen des Gesuchten Medikament");
+								id = scanner.next();
+								anwendung.suchen(id);
+								fehler = true;
+							}
+
+							else{
+								System.out.println("Falsche Eingabe.");
+								
+							}
+
+							while(fehler) {
+								
+								System.out.println("Wollen Sie ein weiteres Medikament suchen, dann geben Sie 'y' ein.");
+								System.out.println("Wenn Sie kein Medikament weiter suchen wollen, dann geben Sie 'n' ein.");
+								a = scanner.next();
+								if(a.equals("y")){
+
+									wiederhol = true;
+									fehler = false;
+
+								}
+								else if(a.equals("n")){
+									wiederhol=false;
+									fehler = false;
+								}
+								else{
+									System.out.println("Falsche Eingabe.");
+									System.out.println();
+									fehler = true;
+								}
+
+							}
 						}
 						
 						break;
@@ -122,7 +153,7 @@ public class MedikamenteKonsole {
 					case 4:
 						System.out.println("Sie haben das Programm beendet.");
 						System.out.println("Einen wunderschönen Tag noch.");
-						wiederhol = false;
+						wiederhol2 = false;
 						break;
 			
 			}
