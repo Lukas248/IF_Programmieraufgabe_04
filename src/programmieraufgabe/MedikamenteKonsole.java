@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class MedikamenteKonsole {
 	public static void main(String[] args) {
 		
-
 		MedikamentenAnwendung anwendung = new MedikamentenAnwendung();
 		String a;
 		String name;
@@ -35,6 +34,9 @@ public class MedikamenteKonsole {
 					case 1:
 						
 						while(wiederhol){
+							fehler=true;
+							MedikamentenAnwendung anwendungw = new MedikamentenAnwendung();
+
 							System.out.println("Geben Sie den Name des Medikament");
 							name = scanner.next();
 
@@ -46,8 +48,8 @@ public class MedikamenteKonsole {
 
 							System.out.println("Geben Sie den Preis des Medikament an");
 							preis = scanner.nextDouble();
-			
-							anwendung.anlegen(name, kategorie, preis, anzahl);
+
+							anwendungw.anlegen(name, kategorie, preis, anzahl);
 							
 							
 
@@ -86,6 +88,8 @@ public class MedikamenteKonsole {
 							System.out.println("Unter was wollen Sie suchen?");
 							System.out.println("1. Medikamenten-ID");
 							System.out.println("2. Medikamenten-Name");
+							System.out.println("3. Medikamenten-Katgeorie");
+
 							such = scanner.nextInt();
 
 							if(such == 1){
@@ -97,6 +101,12 @@ public class MedikamenteKonsole {
 
 							else if(such == 2){
 								System.out.println("Geben Sie den Namen des Gesuchten Medikament");
+								id = scanner.next();
+								anwendung.suchen(id);
+								fehler = true;
+							}
+							else if(such == 3){
+								System.out.println("Geben Sie den Kategorie des Gesuchten Medikament");
 								id = scanner.next();
 								anwendung.suchen(id);
 								fehler = true;
