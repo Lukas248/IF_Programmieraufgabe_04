@@ -1,3 +1,1 @@
-
-Id: 1001 Name: Test Kategorie: Test Preis: 1.0 Euro Anzahl: 1 Stueck 
-Id: 1002 Name: Test2 Kategorie: Test2 Preis: 2.0 Euro Anzahl: 2 Stueck 
+Id: 1000 Name: afad Kategorie: tasdf Preis: 2.0 Euro Anzahl: 1 Stueck 

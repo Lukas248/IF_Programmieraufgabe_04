@@ -66,6 +66,8 @@ public class MedikamentenAnwendung {
 
     }
 
+    
+
     public void einkaufen(int id, int stueck) throws IOException {
 
         medikamente.get(id-1000).einkauf(stueck);
@@ -84,7 +86,7 @@ public class MedikamentenAnwendung {
 
     public void loeschen(int id) throws IOException {
 
-        medikamente.remove(id-1001);
+        medikamente.remove(id-1000);
         verzeichnis.delete();
         neueDatei();
 
@@ -112,59 +114,60 @@ public class MedikamentenAnwendung {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(verzeichnis))) {
 
-            while (reader.readLine() != null) {
+            
+                BufferedReader reader2 = new BufferedReader(new FileReader(verzeichnis));
 
                 int id = 1001;
                 String name = "";
                 String kategorie = "";
                 double preis = 0;
-                int anzahl = 0;
+                int anzahl = 0;         
+ 
+                while(reader.readLine()!=null) {
 
-                String[] woerter = reader.readLine().split(" ");
+                    String[] woerter = reader2.readLine().split(" ");
 
-                for (int i = 0; i < woerter.length; i++) {
+                    for (int i = 0; i < woerter.length; i++) {
 
-                    System.out.println(woerter[i]);
+                        System.out.println(woerter[i]);
 
-                    if(woerter[i].equals("Id:")) {
+                        if(woerter[i].equals("Id:")) {
 
-                        id = Integer.parseInt(woerter[i+1]) - 1000;
+                            id = Integer.parseInt(woerter[i+1]) - 1000;
 
+                        }
+                        else if(woerter[i].equals("Name:")) {
+
+                            name = woerter[i+1];
+
+                        }
+                        else if(woerter[i].equals("Kategorie:")) {
+
+                            kategorie = woerter[i+1];
+
+                        }
+                        else if(woerter[i].equals("Preis:")) {
+
+                            preis = Double.parseDouble(woerter[i+1]);
+
+                        }
+                        else if(woerter[i].equals("Anzahl:")) {
+
+                            anzahl = Integer.parseInt(woerter[i+1]);
+
+                        }
+
+                        medikament = new Medikamente(id, name, kategorie, preis, anzahl);
+
+                        medikamente.add(medikament);
+
+                        
                     }
-                    else if(woerter[i].equals("Name:")) {
-
-                        name = woerter[i+1];
-
-                    }
-                    else if(woerter[i].equals("Kategorie:")) {
-
-                        kategorie = woerter[i+1];
-
-                    }
-                    else if(woerter[i].equals("Preis:")) {
-
-                        preis = Double.parseDouble(woerter[i+1]);
-
-                    }
-                    else if(woerter[i].equals("Anzahl:")) {
-
-                        anzahl = Integer.parseInt(woerter[i+1]);
-
-                    }
-
-
-                    
+   
                 }
 
-                medikament = new Medikamente(id, name, kategorie, preis, anzahl);
-
-                medikamente.add(medikament);
-
-                
-
-                
-
-            }
+                reader2.close();
+            
           } catch (IOException e) {
             System.out.println("Fehler beim Lesen der Datei: " + e.getMessage());
           }
