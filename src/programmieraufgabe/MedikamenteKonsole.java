@@ -17,6 +17,8 @@ public class MedikamenteKonsole {
 		boolean wiederhol2 = true;
 		boolean fehler = true;
 
+		anwendung.erstellen();
+
 		try (Scanner scanner = new Scanner(System.in)) {
 			while(wiederhol2){
 				
@@ -30,6 +32,7 @@ public class MedikamenteKonsole {
 				System.out.println("4. Das Programm beenden");
 				System.out.println("Geben Sie die Zahl ein was Sie ausführen wollen.");
 				auswahl = scanner.nextInt();
+				
 				switch (auswahl) {
 					case 1:
 						

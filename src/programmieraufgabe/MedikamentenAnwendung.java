@@ -84,7 +84,7 @@ public class MedikamentenAnwendung {
 
     public void loeschen(int id) throws IOException {
 
-        medikamente.remove(id-1000);
+        medikamente.remove(id-1001);
         verzeichnis.delete();
         neueDatei();
 
@@ -105,6 +105,72 @@ public class MedikamentenAnwendung {
             eingabe.close();
 
         }
+
+    }
+
+    public void erstellen() {
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(verzeichnis))) {
+
+            while (reader.readLine() != null) {
+
+                int id = 1001;
+                String name = "";
+                String kategorie = "";
+                double preis = 0;
+                int anzahl = 0;
+
+                String[] woerter = reader.readLine().split(" ");
+
+                for (int i = 0; i < woerter.length; i++) {
+
+                    System.out.println(woerter[i]);
+
+                    if(woerter[i].equals("Id:")) {
+
+                        id = Integer.parseInt(woerter[i+1]) - 1000;
+
+                    }
+                    else if(woerter[i].equals("Name:")) {
+
+                        name = woerter[i+1];
+
+                    }
+                    else if(woerter[i].equals("Kategorie:")) {
+
+                        kategorie = woerter[i+1];
+
+                    }
+                    else if(woerter[i].equals("Preis:")) {
+
+                        preis = Double.parseDouble(woerter[i+1]);
+
+                    }
+                    else if(woerter[i].equals("Anzahl:")) {
+
+                        anzahl = Integer.parseInt(woerter[i+1]);
+
+                    }
+
+
+                    
+                }
+
+                medikament = new Medikamente(id, name, kategorie, preis, anzahl);
+
+                medikamente.add(medikament);
+
+                
+
+                
+
+            }
+          } catch (IOException e) {
+            System.out.println("Fehler beim Lesen der Datei: " + e.getMessage());
+          }
+
+
+          
 
     }
 
