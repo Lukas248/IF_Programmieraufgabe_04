@@ -27,7 +27,7 @@ public class MedikamenteKonsole {
 				System.out.println("----------------Medikamente Menü----------------");
 				System.out.println("1. Ein neues Medikament anlegen");
 				System.out.println("2. Ein Medikament suchen");
-				System.out.println("3. Ein Medikament aus löschen");
+				System.out.println("3. Ein Medikament löschen");
 				System.out.println("4. Medikamente verkaufen oder einkaufen");
 				System.out.println("5. Das Programm beenden");
 				System.out.println("Geben Sie die Zahl ein was Sie ausführen wollen.");

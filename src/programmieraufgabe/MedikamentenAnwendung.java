@@ -13,6 +13,8 @@ public class MedikamentenAnwendung {
 
     public void anlegen(String name, String kategorie, double preis, int stueck) {
 
+        anzahl = 0;
+
         try (BufferedReader reader = new BufferedReader(new FileReader(verzeichnis))) {
             
             while ((reader.readLine()) != null) {
@@ -22,16 +24,20 @@ public class MedikamentenAnwendung {
 
 
             }
+
+            reader.close();
+
           } catch (IOException e) {
             System.out.println("Fehler beim Lesen der Datei: " + e.getMessage());
           }
 
         medikament = new Medikamente(anzahl, name, kategorie, preis, stueck);
         medikamente.add(medikament);
-
+        verzeichnis.delete();
 
         neueDatei();
 
+        
 
     }
 
@@ -79,7 +85,6 @@ public class MedikamentenAnwendung {
 
     public void loeschen(int id) {
 
-        erstellen();
         medikamente.remove(id-1000);
         verzeichnis.delete();
         neueDatei();
