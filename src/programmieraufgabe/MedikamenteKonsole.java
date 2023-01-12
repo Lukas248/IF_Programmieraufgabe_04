@@ -24,13 +24,14 @@ public class MedikamenteKonsole {
 				wiederhol = true;
 				fehler = true;
 				
-				System.out.println("Medikamente Menü");
+				System.out.println("----------------Medikamente Menü----------------");
 				System.out.println("1. Ein neues Medikament anlegen");
 				System.out.println("2. Ein Medikament suchen");
 				System.out.println("3. Ein Medikament aus löschen");
 				System.out.println("4. Medikamente verkaufen oder einkaufen");
 				System.out.println("5. Das Programm beenden");
 				System.out.println("Geben Sie die Zahl ein was Sie ausführen wollen.");
+				System.out.println("------------------------------------------------");
 				auswahl = scanner.nextInt();
 
 				switch (auswahl) {
@@ -38,7 +39,6 @@ public class MedikamenteKonsole {
 						
 						while(wiederhol){
 							fehler=true;
-							MedikamentenAnwendung anwendungw = new MedikamentenAnwendung();
 
 							System.out.println("Geben Sie den Name des Medikament");
 							name = scanner.next();
@@ -52,7 +52,7 @@ public class MedikamenteKonsole {
 							System.out.println("Geben Sie den Preis des Medikament an");
 							preis = scanner.nextDouble();
 
-							anwendungw.anlegen(name, kategorie, preis, anzahl);
+							anwendung.anlegen(name, kategorie, preis, anzahl);
 							
 							
 
