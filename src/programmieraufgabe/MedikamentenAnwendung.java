@@ -29,16 +29,9 @@ public class MedikamentenAnwendung {
         medikament = new Medikamente(anzahl, name, kategorie, preis, stueck);
         medikamente.add(medikament);
 
-        try {
 
-            neueDatei();
+        neueDatei();
 
-        }
-        catch(IOException e) {
-
-            System.out.println("Fehler beim Lesen der Datei: " + e.getMessage());
-
-        }
 
     }
 
@@ -84,52 +77,65 @@ public class MedikamentenAnwendung {
 
     }
 
-    public void loeschen(int id) throws IOException {
+    public void loeschen(int id) {
 
+        erstellen();
         medikamente.remove(id-1000);
         verzeichnis.delete();
         neueDatei();
 
     }
 
-    public void neueDatei() throws IOException {
+    public void neueDatei() {
 
-        eingabe = new FileWriter(verzeichnis, true);
+        try {
 
-        for (Medikamente i : medikamente) {
+            eingabe = new FileWriter("dateien/medikamente.txt", true);
+
+            for (Medikamente i : medikamente) {
             
-            eingabe.write("Id: "+ i.getId() + " ");
-            eingabe.write("Name: " + i.getName()  + " ");
-            eingabe.write("Kategorie: " + i.getKategorie()  + " ");
-            eingabe.write("Preis: " + i.getPreis() + " Euro ");
-            eingabe.write("Anzahl: " + i.getAnzahl() + " Stueck \n");
+                eingabe.write("Id: "+ i.getId() + " ");
+                eingabe.write("Name: " + i.getName()  + " ");
+                eingabe.write("Kategorie: " + i.getKategorie()  + " ");
+                eingabe.write("Preis: " + i.getPreis() + " Euro ");
+                eingabe.write("Anzahl: " + i.getAnzahl() + " Stueck \n");
+
+    
+            }
+
             eingabe.flush();
             eingabe.close();
 
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        
 
     }
 
     public void erstellen() {
 
+
         try (BufferedReader reader = new BufferedReader(new FileReader(verzeichnis))) {
 
+
             
+
                 BufferedReader reader2 = new BufferedReader(new FileReader(verzeichnis));
 
-                int id = 1001;
-                String name = "";
-                String kategorie = "";
-                double preis = 0;
-                int anzahl = 0;         
- 
+                       
                 while(reader.readLine()!=null) {
+
+                    int id = 1001;
+                    String name = "";
+                    String kategorie = "";
+                    double preis = 0;
+                    int anzahl = 0;  
 
                     String[] woerter = reader2.readLine().split(" ");
 
                     for (int i = 0; i < woerter.length; i++) {
-
-                        System.out.println(woerter[i]);
 
                         if(woerter[i].equals("Id:")) {
 
@@ -157,22 +163,25 @@ public class MedikamentenAnwendung {
 
                         }
 
-                        medikament = new Medikamente(id, name, kategorie, preis, anzahl);
-
-                        medikamente.add(medikament);
+                        
 
                         
                     }
+
+                    medikament = new Medikamente(id, name, kategorie, preis, anzahl);
+
+                    medikamente.add(medikament);
    
                 }
 
                 reader2.close();
-            
+                reader.close();
+
           } catch (IOException e) {
             System.out.println("Fehler beim Lesen der Datei: " + e.getMessage());
           }
 
-
+          
           
 
     }

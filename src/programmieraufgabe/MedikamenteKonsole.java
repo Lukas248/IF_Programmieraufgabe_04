@@ -1,6 +1,5 @@
 package programmieraufgabe;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class MedikamenteKonsole {
@@ -157,15 +156,11 @@ public class MedikamenteKonsole {
 						while(fehler) {
 
 							System.out.println("Geben Sie die Id des Medikament das Sie löschen wollen");
-							try {
-								anwendung.loeschen(scanner.nextInt());
-								System.out.println("Das Medikament wurde gelöscht werden!");
-								fehler = false;
-							} catch (IOException e) {
-								System.out.println("Das Medikament konnte nicht gelöscht werden!");
-								e.printStackTrace();
-								fehler = true;
-							}
+							such = scanner.nextInt();
+							anwendung.loeschen(such);
+							System.out.println("Das Medikament wurde gelöscht werden!");
+							fehler = false;
+							
 
 						}
 
