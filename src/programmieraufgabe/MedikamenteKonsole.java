@@ -12,19 +12,18 @@ public class MedikamenteKonsole {
 		double preis;
 		String kategorie;
 		int auswahl;
-		boolean wiederholen = true;
-		//Damit die schleifen überhaubt sich wiederholen können
-		boolean wiederholen2 = true;
-		boolean fehler = true;
+		boolean wiederholen;
+		boolean fehler;
 		int id;
 
 		anwendung.erstellen();
 
 		try (Scanner scanner = new Scanner(System.in)) {
 
-			while(wiederholen2){
+			do {
 
-
+				wiederholen = true;
+				fehler = false;
 				
 				System.out.println("----------------Medikamente Menü----------------");
 				System.out.println("1. Ein neues Medikament anlegen");
@@ -39,9 +38,8 @@ public class MedikamenteKonsole {
 				switch (auswahl) {
 					case 1:
 						
-						while(fehler){
+						do {
 							
-
 							System.out.println("Geben Sie den Name des Medikament");
 							name = scanner.next();
 
@@ -58,18 +56,20 @@ public class MedikamenteKonsole {
 							
 							
 
-							while(fehler) {
+							do {
 
-								System.out.println("Wenn Sie ein weiteres Medikament eingeben wollen, dann geben Sie 'y' ein.");
-								System.out.println("Wenn Sie kein Medikament weiter angeben wollen, dann geben Sie 'n' ein.");
+								System.out.println("Wenn Sie ein weiteres Medikament eingeben wollen, dann geben Sie 0 ein.");
+								System.out.println("Wenn Sie kein Medikament weiter angeben wollen, dann geben Sie 1 ein.");
 								
-								if(scanner.nextLine().equals("y")){
+								auswahl = scanner.nextInt();
+
+								if(auswahl == 0){
 
 									wiederholen = true;
 									fehler = false;
 
 								}
-								else if(scanner.nextLine().equals("n")){
+								else if(auswahl == 1){
 									wiederholen =false;
 									fehler = false;
 								}
@@ -79,81 +79,110 @@ public class MedikamenteKonsole {
 									fehler = true;
 								}
 
-							}
+							}while(fehler);
 
 									
-						}
+						}while(wiederholen);
+
+						wiederholen = true;
 						break;
+
 					case 2:
 						
 						
-						while(wiederholen) {
+						do {
 
-							System.out.println("Unter was wollen Sie suchen?");
-							System.out.println("1. Medikamenten-ID");
-							System.out.println("2. Medikamenten-Name");
-							System.out.println("3. Medikamenten-Katgeorie");
-							System.out.println("4. Alle Medikamente suchen");
 
-							auswahl = scanner.nextInt();
+							do {
 
-							if(auswahl == 1){
-								System.out.println("Geben Sie die ID des Gesuchten Medikament");
-								id = scanner.nextInt();
-								anwendung.suchen(id, null, null);
-								fehler = true;
-							}
+								System.out.println("Unter was wollen Sie suchen?");
+								System.out.println("1. Medikamenten-ID");
+								System.out.println("2. Medikamenten-Name");
+								System.out.println("3. Medikamenten-Katgeorie");
+								System.out.println("4. Alle Medikamente suchen");
 
-							else if(auswahl == 2){
-								System.out.println("Geben Sie den Namen des Gesuchten Medikament");
-								name = scanner.next();
-								anwendung.suchen(0, name, null);
-								fehler = true;
-							}
-							else if(auswahl == 3){
-								System.out.println("Geben Sie den Kategorie des Gesuchten Medikament");
-								kategorie = scanner.next();
-								anwendung.suchen(0, null, kategorie);
-								fehler = true;
-							}
-							else if(auswahl == 4) {
+								auswahl = scanner.nextInt();
 
-								anwendung.anzeigen();
+								if(auswahl == 1){
 
-							}
+									System.out.println("Geben Sie die ID des Gesuchten Medikament");
+									id = scanner.nextInt();
+									anwendung.suchen(id, null, null);
+									
+								}
 
-							else {
-								System.out.println("Falsche Eingabe.");
-								fehler = false;
-							}
+								else if(auswahl == 2){
 
-							while(fehler) {
-								
-								System.out.println("Wollen Sie ein weiteres Medikament suchen, dann geben Sie 'y' ein.");
-								System.out.println("Wenn Sie kein Medikament weiter suchen wollen, dann geben Sie 'n' ein.");
-								
-								if(scanner.nextLine().equals("y")){
+									System.out.println("Geben Sie den Namen des Gesuchten Medikament");
+									name = scanner.next();
+									anwendung.suchen(0, name, null);
+									
+								}
+								else if(auswahl == 3){
 
-									wiederholen = true;
+									System.out.println("Geben Sie den Kategorie des Gesuchten Medikament");
+									kategorie = scanner.next();
+									anwendung.suchen(0, null, kategorie);
+									
+								}
+								else if(auswahl == 4) {
+
+									anwendung.anzeigen();
 									fehler = false;
 
 								}
-								else if(scanner.nextLine().equals("n")){
-									wiederholen=false;
-									fehler = false;
-								}
-								else{
+
+								else {
 									System.out.println("Falsche Eingabe.");
 									fehler = true;
 								}
 
-							}
-						}
+							}while(fehler);
+
+							do {
+								
+								try {
+								
+									System.out.println("Wollen Sie ein weiteres Medikament suchen, dann geben Sie 0 ein.");
+									System.out.println("Wenn Sie kein Medikament weiter suchen wollen, dann geben Sie 1 ein.");
+									
+									auswahl = scanner.nextInt();
+
+									if(auswahl == 0){
+
+										wiederholen = true;
+										fehler = false;
+
+									}
+									else if(auswahl == 1){
+
+										wiederholen=false;
+										fehler = false;
+
+									}
+									else {
+
+										System.out.println("Falsche Eingabe.");
+										fehler = true;
+
+									}
+
+								}catch(NumberFormatException e) {
+
+									System.out.println("Falsche Eingabe.");
+									fehler = true;
+
+								}
+
+							}while(fehler);
+
+						}while(wiederholen);
 						
+						wiederholen = true;
 						break;
 					case 3:
 
-						while(fehler) {
+						try {
 
 							System.out.println("Geben Sie die Id des Medikament das Sie löschen wollen");
 							auswahl = scanner.nextInt();
@@ -162,20 +191,25 @@ public class MedikamenteKonsole {
 							fehler = false;
 							
 
-						}
+						}catch(NumberFormatException e) {
 
+							fehler = true;
+							System.out.println("Es ist ein Fehler aufgetretten!");
+
+						}
+						wiederholen = true;
 						break;
 
 					case 4:
 						
-						while (fehler) {
+						do {
 
-							System.out.println("1. Medikamenten verkaufen");
-							System.out.println("2. Medikamenten einkaufen");
+							try {
 
-							auswahl = scanner.nextInt();
+								System.out.println("1. Medikamenten verkaufen");
+								System.out.println("2. Medikamenten einkaufen");
 
-							while(fehler) {
+								auswahl = scanner.nextInt();
 
 								System.out.println("Geben Sie die Id des Medikament ein!");
 								id = scanner.nextInt();
@@ -184,17 +218,9 @@ public class MedikamenteKonsole {
 
 									System.out.println("Wie viele Medikamente möchten Sie verkaufen?");
 									anzahl = scanner.nextInt(); 
-									try {
-										anwendung.verkaufen(id,anzahl);
-										fehler = false;
-									} catch (NumberFormatException e) {
-										fehler = true;
-										e.printStackTrace();
-									} catch (IOException e) {
-										fehler = true;
-										e.printStackTrace();
-									}
-
+									anwendung.verkaufen(id,anzahl);
+									fehler = false;
+								
 									
 
 								}
@@ -202,16 +228,7 @@ public class MedikamenteKonsole {
 
 									System.out.println("Wie viele Medikamente möchten Sie einkaufen?");
 									anzahl = scanner.nextInt(); 
-									try {
-										anwendung.einkaufen(id,anzahl);
-										fehler = false;
-									} catch (NumberFormatException e) {
-										fehler = true;
-										e.printStackTrace();
-									} catch (IOException e) {
-										fehler = true;
-										e.printStackTrace();
-									}
+									anwendung.einkaufen(id,anzahl);
 
 								}
 								else {
@@ -221,25 +238,28 @@ public class MedikamenteKonsole {
 
 								}
 
+							}catch(IOException e) {
+
+								System.out.println("Es ist ein Fehler aufgetretten!");
+								fehler = true;
 
 							}
 
-						}
+						}while(fehler);
 
-						
+						wiederholen = true;
 
 						break;
 	
 					case 5:
 						System.out.println("Sie haben das Programm beendet.");
 						System.out.println("Einen wunderschönen Tag noch.");
-						wiederholen2 = false;
+						wiederholen = false;
 						break;
-						
-			}			
-		
-			}
+			
+				}
+
+			}while(wiederholen);
 		}	
 	}
-
 }
