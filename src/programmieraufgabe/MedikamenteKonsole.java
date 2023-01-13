@@ -99,31 +99,32 @@ public class MedikamenteKonsole {
 							if(such == 1){
 								System.out.println("Geben Sie die ID des Gesuchten Medikament");
 								id = scanner.next();
-								anwendung.suchen(id);
+								anwendung.suchen(id, "id");
 								fehler = true;
 							}
 
 							else if(such == 2){
 								System.out.println("Geben Sie den Namen des Gesuchten Medikament");
 								id = scanner.next();
-								anwendung.suchen(id);
+								anwendung.suchen(id, "name");
 								fehler = true;
 							}
 							else if(such == 3){
 								System.out.println("Geben Sie den Kategorie des Gesuchten Medikament");
 								id = scanner.next();
-								anwendung.suchen(id);
+								anwendung.suchen(id, "kategorie");
 								fehler = true;
 							}
 							else if(such == 4) {
 
-								
+								anwendung.suchen(null, "alle");
+								fehler = true;
 
 							}
 
 							else {
 								System.out.println("Falsche Eingabe.");
-								
+								fehler = false;
 							}
 
 							while(fehler) {

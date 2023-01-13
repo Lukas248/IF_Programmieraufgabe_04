@@ -41,22 +41,59 @@ public class MedikamentenAnwendung {
 
     }
 
-    public void suchen(String id) {
+    public void suchen(String id, String suchkriterium) {
 
         
         try (BufferedReader reader = new BufferedReader(new FileReader(verzeichnis))) {
             String zeile;
             while ((zeile = reader.readLine()) != null) {
 
-                if(zeile.contains(id)) {
+                for (int i = 0; i < medikamente.size(); i++) {
+            
 
-                    System.out.println(zeile);
+                    if(suchkriterium.equals("id")) {
+
+                        if(medikamente.get(i).getId() == Integer.parseInt(id)) {
+
+                            System.out.println(zeile);
+
+                        }
+
+                    }
+                    else if(suchkriterium.equals("name")) {
+
+                        if(medikamente.get(i).getName().equals(id)) {
+
+                            System.out.println(zeile);
+
+                        }
 
 
+                    }
+                    else if(suchkriterium.equals("kategorie")) {
+
+                        if(medikamente.get(i).getKategorie().equals(id)) {
+
+                            System.out.println(zeile);
+
+                        }
+
+                    }
+                    
+                    else if(suchkriterium.equals("alles") && id.equals(null)){
+
+                        System.out.println(zeile);
+
+                    }
+    
+        
                 }
 
 
             }
+
+            reader.close();
+
           } catch (IOException e) {
             System.out.println("Fehler beim Lesen der Datei: " + e.getMessage());
           }
@@ -85,7 +122,17 @@ public class MedikamentenAnwendung {
 
     public void loeschen(int id) {
 
-        medikamente.remove(id-1000);
+        
+        for (int i = 0; i < medikamente.size(); i++) {
+
+            if(medikamente.get(i).getId() == id) {
+
+                medikamente.remove(i);
+
+            }
+
+        }
+
         verzeichnis.delete();
         neueDatei();
 
