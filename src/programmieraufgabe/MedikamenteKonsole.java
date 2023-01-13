@@ -119,7 +119,6 @@ public class MedikamenteKonsole {
 							else if(auswahl == 4) {
 
 								anwendung.anzeigen();
-								fehler = true;
 
 							}
 
