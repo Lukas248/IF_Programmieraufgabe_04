@@ -41,52 +41,27 @@ public class MedikamentenAnwendung {
 
     }
 
-    public void suchen(String id, String suchkriterium) {
+    public void suchen(int id, String name, String kategorie) {
 
         
         try (BufferedReader reader = new BufferedReader(new FileReader(verzeichnis))) {
             String zeile;
             while ((zeile = reader.readLine()) != null) {
 
-                for (Medikamente i: medikamente) {
-            
+                if(zeile.contains("Id: "+id)) {
 
-                    if(suchkriterium.equals("id")) {
+                    System.out.println(zeile);
 
-                        if(i.getId() == Integer.parseInt(id)) {
+                }
+                else if(zeile.contains("Name: "+name)) {
 
-                            System.out.println(zeile);
+                    System.out.println(zeile);
 
-                        }
+                }
+                else if(zeile.contains("Kategorie: "+kategorie)) {
 
-                    }
-                    else if(suchkriterium.equals("name")) {
+                    System.out.println(zeile);
 
-                        if(i.getName().equals(id)) {
-
-                            System.out.println(zeile);
-
-                        }
-
-
-                    }
-                    else if(suchkriterium.equals("kategorie")) {
-
-                        if(i.getKategorie().equals(id)) {
-
-                            System.out.println(zeile);
-
-                        }
-
-                    }
-                    
-                    else if(suchkriterium.equals("alles")){
-
-                        System.out.println(zeile);
-
-                    }
-    
-        
                 }
 
 
@@ -235,6 +210,26 @@ public class MedikamentenAnwendung {
 
           
           
+
+    }
+
+    public void anzeigen() {
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(verzeichnis))) {
+            String zeile;
+            while ((zeile = reader.readLine()) != null) {
+
+                System.out.println(zeile);
+
+
+            }
+
+            reader.close();
+
+          } catch (IOException e) {
+            System.out.println("Fehler beim Lesen der Datei: " + e.getMessage());
+          }
+
 
     }
 
