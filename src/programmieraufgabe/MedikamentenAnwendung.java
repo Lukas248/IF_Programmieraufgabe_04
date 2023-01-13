@@ -48,12 +48,12 @@ public class MedikamentenAnwendung {
             String zeile;
             while ((zeile = reader.readLine()) != null) {
 
-                for (int i = 0; i < medikamente.size(); i++) {
+                for (Medikamente i: medikamente) {
             
 
                     if(suchkriterium.equals("id")) {
 
-                        if(medikamente.get(i).getId() == Integer.parseInt(id)) {
+                        if(i.getId() == Integer.parseInt(id)) {
 
                             System.out.println(zeile);
 
@@ -62,7 +62,7 @@ public class MedikamentenAnwendung {
                     }
                     else if(suchkriterium.equals("name")) {
 
-                        if(medikamente.get(i).getName().equals(id)) {
+                        if(i.getName().equals(id)) {
 
                             System.out.println(zeile);
 
@@ -72,7 +72,7 @@ public class MedikamentenAnwendung {
                     }
                     else if(suchkriterium.equals("kategorie")) {
 
-                        if(medikamente.get(i).getKategorie().equals(id)) {
+                        if(i.getKategorie().equals(id)) {
 
                             System.out.println(zeile);
 
@@ -80,7 +80,7 @@ public class MedikamentenAnwendung {
 
                     }
                     
-                    else if(suchkriterium.equals("alles") && id.equals(null)){
+                    else if(suchkriterium.equals("alles")){
 
                         System.out.println(zeile);
 

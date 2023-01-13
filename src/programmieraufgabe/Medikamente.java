@@ -78,6 +78,11 @@ public class Medikamente {
         anzahl = anzahl - verkauf;
 
       }
+      else {
+
+        System.out.println("Es gibt nicht genügend Medikamente.");
+
+      }
 
     }
 

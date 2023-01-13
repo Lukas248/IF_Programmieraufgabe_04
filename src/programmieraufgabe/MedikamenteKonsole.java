@@ -1,5 +1,6 @@
 package programmieraufgabe;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MedikamenteKonsole {
@@ -174,8 +175,60 @@ public class MedikamenteKonsole {
 							System.out.println("1. Medikamenten verkaufen");
 							System.out.println("2. Medikamenten einkaufen");
 
+							such = scanner.nextInt();
+
+							while(fehler) {
+
+								System.out.println("Geben Sie die Id des Medikament ein!");
+								id = scanner.next();
+								
+								if(such == 1) {
+
+									System.out.println("Wie viele Medikamente möchten Sie verkaufen?");
+									anzahl = scanner.nextInt(); 
+									try {
+										anwendung.verkaufen(Integer.parseInt(id),anzahl);
+										fehler = false;
+									} catch (NumberFormatException e) {
+										fehler = true;
+										e.printStackTrace();
+									} catch (IOException e) {
+										fehler = true;
+										e.printStackTrace();
+									}
+
+									
+
+								}
+								else if(such == 2) {
+
+									System.out.println("Wie viele Medikamente möchten Sie einkaufen?");
+									anzahl = scanner.nextInt(); 
+									try {
+										anwendung.einkaufen(Integer.parseInt(id),anzahl);
+										fehler = false;
+									} catch (NumberFormatException e) {
+										fehler = true;
+										e.printStackTrace();
+									} catch (IOException e) {
+										fehler = true;
+										e.printStackTrace();
+									}
+
+								}
+								else {
+
+									System.out.println("Es ist ein Fehler aufgetretten!");
+									fehler = true;
+
+								}
+
+
+							}
 
 						}
+
+						
 
 						break;
 	
