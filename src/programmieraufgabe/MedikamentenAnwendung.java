@@ -48,12 +48,12 @@ public class MedikamentenAnwendung {
             String zeile;
             while ((zeile = reader.readLine()) != null) {
 
-                for (int i = 0; i < medikamente.size(); i++) {
+               
             
 
                     if(suchkriterium.equals("id")) {
 
-                        if(medikamente.get(i).getId() == Integer.parseInt(id)) {
+                        if(zeile.contains("Id: " +id)) {
 
                             System.out.println(zeile);
 
@@ -62,7 +62,7 @@ public class MedikamentenAnwendung {
                     }
                     else if(suchkriterium.equals("name")) {
 
-                        if(medikamente.get(i).getName().equals(id)) {
+                        if(zeile.contains("Name: "+id)) {
 
                             System.out.println(zeile);
 
@@ -70,27 +70,20 @@ public class MedikamentenAnwendung {
 
 
                     }
-                    else if(suchkriterium.equals("kategorie")) {
+                        
+                       if(suchkriterium.equals("kategorie")) {
 
-                        if(medikamente.get(i).getKategorie().equals(id)) {
+                        if(zeile.contains("Kategorie: "+id)) {
 
                             System.out.println(zeile);
 
                         }
 
                     }
-                    
-                    else if(suchkriterium.equals("alles") && id.equals(null)){
-
-                        System.out.println(zeile);
-
-                    }
-    
-        
+                        if(suchkriterium.equals("alle")){
+                            System.out.println(zeile);
+                   }
                 }
-
-
-            }
 
             reader.close();
 
@@ -106,7 +99,13 @@ public class MedikamentenAnwendung {
 
     public void einkaufen(int id, int stueck) throws IOException {
 
-        medikamente.get(id-1000).einkauf(stueck);
+        for (int i = 0; i < medikamente.size(); i++) {
+            if(medikamente.get(i).getId() == id) {
+
+                medikamente.get(i).einkauf(stueck);
+            }
+
+        }
         verzeichnis.delete();
         neueDatei();
 
@@ -114,7 +113,14 @@ public class MedikamentenAnwendung {
 
     public void verkaufen(int id,  int stueck) throws IOException {
 
-        medikamente.get(id-1000).verkauf(stueck);
+        for (int i = 0; i < medikamente.size(); i++) {
+
+            if(medikamente.get(i).getId() == id) {
+
+                medikamente.get(i).verkauf(stueck);
+            }
+
+        }
         verzeichnis.delete();
         neueDatei();
 
@@ -240,4 +246,3 @@ public class MedikamentenAnwendung {
 
 
 }
-

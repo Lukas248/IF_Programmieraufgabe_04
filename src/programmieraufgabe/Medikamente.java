@@ -73,7 +73,7 @@ public class Medikamente {
 
     public void verkauf(int verkauf) {
 
-      if(anzahl <= verkauf) {
+      if(anzahl >= verkauf) {
 
         anzahl = anzahl - verkauf;
 
