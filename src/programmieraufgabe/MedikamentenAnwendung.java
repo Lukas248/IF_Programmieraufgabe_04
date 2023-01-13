@@ -81,7 +81,13 @@ public class MedikamentenAnwendung {
 
     public void einkaufen(int id, int stueck) throws IOException {
 
-        medikamente.get(id-1000).einkauf(stueck);
+        for (int i = 0; i < medikamente.size(); i++) {
+            if(medikamente.get(i).getId() == id) {
+
+                medikamente.get(i).einkauf(stueck);
+            }
+
+        }
         verzeichnis.delete();
         neueDatei();
 
@@ -89,7 +95,14 @@ public class MedikamentenAnwendung {
 
     public void verkaufen(int id,  int stueck) throws IOException {
 
-        medikamente.get(id-1000).verkauf(stueck);
+        for (int i = 0; i < medikamente.size(); i++) {
+
+            if(medikamente.get(i).getId() == id) {
+
+                medikamente.get(i).verkauf(stueck);
+            }
+
+        }
         verzeichnis.delete();
         neueDatei();
 
@@ -235,4 +248,3 @@ public class MedikamentenAnwendung {
 
 
 }
-

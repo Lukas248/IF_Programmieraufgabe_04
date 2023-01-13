@@ -1,2 +1,2 @@
 Id: 1000 Name: Test Kategorie: Test Preis: 1.0 Euro Anzahl: 0 Stueck 
-Id: 1001 Name: Test Kategorie: Test Preis: 1.0 Euro Anzahl: 11 Stueck 
+Id: 1001 Name: Test Kategorie: Test Preis: 1.0 Euro Anzahl: 11 Stueck
