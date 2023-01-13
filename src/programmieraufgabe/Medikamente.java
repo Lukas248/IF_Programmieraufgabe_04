@@ -73,9 +73,14 @@ public class Medikamente {
 
     public void verkauf(int verkauf) {
 
-      if(anzahl >= verkauf) {
+      if(anzahl -  verkauf >= 0) {
 
         anzahl = anzahl - verkauf;
+
+      }
+      else {
+
+        System.out.println("Es gibt nicht genügend Medikamente.");
 
       }
 
