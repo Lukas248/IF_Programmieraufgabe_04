@@ -22,6 +22,9 @@ public class MedikamenteKonsole {
 
 			while(wiederholen){
 				
+				wiederholen = true;
+				fehler = true;
+				
 				System.out.println("----------------Medikamente Menü----------------");
 				System.out.println("1. Ein neues Medikament anlegen");
 				System.out.println("2. Ein Medikament suchen");
