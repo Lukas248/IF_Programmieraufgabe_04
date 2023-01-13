@@ -17,8 +17,6 @@ public class MedikamenteKonsole {
 		int id;
 
 		anwendung.erstellen();
-   
-
 
 		
 		try (Scanner scanner = new Scanner(System.in)) {
