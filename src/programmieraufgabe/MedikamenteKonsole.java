@@ -13,6 +13,8 @@ public class MedikamenteKonsole {
 		String kategorie;
 		int auswahl;
 		boolean wiederholen = true;
+		//Damit die schleifen überhaubt sich wiederholen können
+		boolean wiederholen2 = true;
 		boolean fehler = true;
 		int id;
 
@@ -20,10 +22,9 @@ public class MedikamenteKonsole {
 
 		try (Scanner scanner = new Scanner(System.in)) {
 
-			while(wiederholen){
-				
-				wiederholen = true;
-				fehler = true;
+			while(wiederholen2){
+
+
 				
 				System.out.println("----------------Medikamente Menü----------------");
 				System.out.println("1. Ein neues Medikament anlegen");
@@ -62,13 +63,13 @@ public class MedikamenteKonsole {
 								System.out.println("Wenn Sie ein weiteres Medikament eingeben wollen, dann geben Sie 'y' ein.");
 								System.out.println("Wenn Sie kein Medikament weiter angeben wollen, dann geben Sie 'n' ein.");
 								
-								if(scanner.next().equals("y")){
+								if(scanner.nextLine().equals("y")){
 
 									wiederholen = true;
 									fehler = false;
 
 								}
-								else if(scanner.next().equals("n")){
+								else if(scanner.nextLine().equals("n")){
 									wiederholen =false;
 									fehler = false;
 								}
@@ -132,13 +133,13 @@ public class MedikamenteKonsole {
 								System.out.println("Wollen Sie ein weiteres Medikament suchen, dann geben Sie 'y' ein.");
 								System.out.println("Wenn Sie kein Medikament weiter suchen wollen, dann geben Sie 'n' ein.");
 								
-								if(scanner.next().equals("y")){
+								if(scanner.nextLine().equals("y")){
 
 									wiederholen = true;
 									fehler = false;
 
 								}
-								else if(scanner.next().equals("n")){
+								else if(scanner.nextLine().equals("n")){
 									wiederholen=false;
 									fehler = false;
 								}
@@ -233,11 +234,12 @@ public class MedikamenteKonsole {
 					case 5:
 						System.out.println("Sie haben das Programm beendet.");
 						System.out.println("Einen wunderschönen Tag noch.");
-						wiederholen = false;
+						wiederholen2 = false;
 						break;
-			
+						
+			}			
+		
 			}
-		}
 		}	
 	}
 
