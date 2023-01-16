@@ -40,7 +40,7 @@ public class MedikamenteKonsole {
 					case 1:
 						
 						do {
-							
+							System.out.println("---------------------------------------------------");
 							System.out.println("Geben Sie den Name des Medikament");
 							name = scanner.next();
 
@@ -58,9 +58,10 @@ public class MedikamenteKonsole {
 							
 
 							do {
-
+								System.out.println("-----------------------------------------------------------------------");
 								System.out.println("Wenn Sie ein weiteres Medikament eingeben wollen, dann geben Sie 0 ein.");
 								System.out.println("Wenn Sie kein Medikament weiter angeben wollen, dann geben Sie 1 ein.");
+								System.out.println("-----------------------------------------------------------------------");
 								
 								auswahl = scanner.nextInt();
 
@@ -75,6 +76,7 @@ public class MedikamenteKonsole {
 									fehler = false;
 								}
 								else{
+									System.out.println("---------------------------");
 									System.out.println("Falsche Eingabe.");
 									System.out.println();
 									fehler = true;
@@ -95,39 +97,44 @@ public class MedikamenteKonsole {
 
 
 							do {
-
+								System.out.println("-----------------------------");
 								System.out.println("Unter was wollen Sie suchen?");
 								System.out.println("1. Medikamenten-ID");
 								System.out.println("2. Medikamenten-Name");
 								System.out.println("3. Medikamenten-Katgeorie");
 								System.out.println("4. Alle Medikamente suchen");
-
+								System.out.println("-----------------------------");
 								auswahl = scanner.nextInt();
 
 								if(auswahl == 1){
-
+									System.out.println("-----------------------------------------");
 									System.out.println("Geben Sie die ID des Gesuchten Medikament");
 									String eingabe = scanner.next();
+									System.out.println("------------------------------------------------");
 									anwendung.suchen(eingabe);
 									
 								}
 
-								else if(auswahl == 2){
-
+								else if(auswahl == 2){		
+									System.out.println("--------------------------------------------");
 									System.out.println("Geben Sie den Namen des Gesuchten Medikament");
 									name = scanner.next();
+									System.out.println("------------------------------------------------");
 									anwendung.suchen(name);
 									
 								}
 								else if(auswahl == 3){
 
+									System.out.println("------------------------------------------------");
 									System.out.println("Geben Sie den Kategorie des Gesuchten Medikament");
 									kategorie = scanner.next();
+									System.out.println("------------------------------------------------");
 									anwendung.suchen( kategorie);
 									
 								}
 								else if(auswahl == 4) {
-
+									
+									System.out.println("------------------------------------------------");
 									anwendung.anzeigen();
 									fehler = false;
 
@@ -144,9 +151,11 @@ public class MedikamenteKonsole {
 								
 								try {
 								
+									System.out.println("--------------------------------------------------------------------");
 									System.out.println("Wollen Sie ein weiteres Medikament suchen, dann geben Sie 0 ein.");
 									System.out.println("Wenn Sie kein Medikament weiter suchen wollen, dann geben Sie 1 ein.");
 									
+									System.out.println("--------------------------------------------------------------------");
 									auswahl = scanner.nextInt();
 
 									if(auswahl == 0){
@@ -185,10 +194,14 @@ public class MedikamenteKonsole {
 
 						try {
 
+							System.out.println("------------------------------------------------------");
 							System.out.println("Geben Sie die Id des Medikament das Sie löschen wollen");
 							auswahl = scanner.nextInt();
 							anwendung.loeschen(auswahl);
+							System.out.println("-------------------------------------------------------");
 							System.out.println("Das Medikament wurde gelöscht werden!");
+							System.out.println("-------------------------------------------------------");
+
 							fehler = false;
 							
 
@@ -207,17 +220,24 @@ public class MedikamenteKonsole {
 
 							try {
 
+								System.out.println("-------------------------");
 								System.out.println("1. Medikamenten verkaufen");
 								System.out.println("2. Medikamenten einkaufen");
-
+								System.out.println("-------------------------");
+						
 								auswahl = scanner.nextInt();
 
+								System.out.println("------------------------------------");
 								System.out.println("Geben Sie die Id des Medikament ein!");
+								System.out.println("------------------------------------");
+
 								id = scanner.nextInt();
 								
 								if(auswahl == 1) {
 
+									System.out.println("--------------------------------------------");
 									System.out.println("Wie viele Medikamente möchten Sie verkaufen?");
+									System.out.println("--------------------------------------------");
 									anzahl = scanner.nextInt(); 
 									anwendung.verkaufen(id,anzahl);
 									fehler = false;
@@ -227,7 +247,9 @@ public class MedikamenteKonsole {
 								}
 								else if(auswahl == 2) {
 
+									System.out.println("--------------------------------------------");
 									System.out.println("Wie viele Medikamente möchten Sie einkaufen?");
+									System.out.println("--------------------------------------------");
 									anzahl = scanner.nextInt(); 
 									anwendung.einkaufen(id,anzahl);
 
@@ -254,7 +276,9 @@ public class MedikamenteKonsole {
 	
 					case 5:
 						System.out.println("Sie haben das Programm beendet.");
-						System.out.println("Einen wunderschönen Tag noch.");
+						System.out.println("Einen wunderschönen Tag noch.");							
+						System.out.println("-----------------------------------------------");
+
 						wiederholen = false;
 						break;
 			
