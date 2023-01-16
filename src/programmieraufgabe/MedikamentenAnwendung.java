@@ -28,7 +28,7 @@ public class MedikamentenAnwendung {
             reader.close();
 
           } catch (IOException e) {
-            System.out.println("Fehler beim Lesen der Datei: " + e.getMessage());
+            System.out.println("Fehler beim Lesen der Datei");
           }
 
         medikament = new Medikamente(anzahl, name, kategorie, preis, stueck);
@@ -41,19 +41,19 @@ public class MedikamentenAnwendung {
 
     }
 
-    public void suchen(int id, String name, String kategorie) {
+    public void suchen(String kategorie) {
 
         
         try (BufferedReader reader = new BufferedReader(new FileReader(verzeichnis))) {
             String zeile;
             while ((zeile = reader.readLine()) != null) {
 
-                if(zeile.contains("Id: "+id)) {
+                if(zeile.contains("Id: "+kategorie)) {
 
                     System.out.println(zeile);
 
                 }
-                else if(zeile.contains("Name: "+name)) {
+                else if(zeile.contains("Name: "+kategorie)) {
 
                     System.out.println(zeile);
 
@@ -70,7 +70,7 @@ public class MedikamentenAnwendung {
             reader.close();
 
           } catch (IOException e) {
-            System.out.println("Fehler beim Lesen der Datei: " + e.getMessage());
+            System.out.println("Fehler beim Lesen der Datei");
           }
 
         
@@ -147,7 +147,7 @@ public class MedikamentenAnwendung {
             eingabe.close();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Es ist ein Fehler aufgetretten beim erstellen einer Datei");
         }
 
         
@@ -218,7 +218,7 @@ public class MedikamentenAnwendung {
                 reader.close();
 
           } catch (IOException e) {
-            System.out.println("Fehler beim Lesen der Datei: " + e.getMessage());
+            System.out.println("Fehler beim Lesen der Datei");
           }
 
           
@@ -240,7 +240,7 @@ public class MedikamentenAnwendung {
             reader.close();
 
           } catch (IOException e) {
-            System.out.println("Fehler beim Lesen der Datei: " + e.getMessage());
+            System.out.println("Fehler beim Lesen der Datei");
           }
 
 

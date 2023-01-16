@@ -107,8 +107,8 @@ public class MedikamenteKonsole {
 								if(auswahl == 1){
 
 									System.out.println("Geben Sie die ID des Gesuchten Medikament");
-									id = scanner.nextInt();
-									anwendung.suchen(id, null, null);
+									String eingabe = scanner.next();
+									anwendung.suchen(eingabe);
 									
 								}
 
@@ -116,14 +116,14 @@ public class MedikamenteKonsole {
 
 									System.out.println("Geben Sie den Namen des Gesuchten Medikament");
 									name = scanner.next();
-									anwendung.suchen(0, name, null);
+									anwendung.suchen(name);
 									
 								}
 								else if(auswahl == 3){
 
 									System.out.println("Geben Sie den Kategorie des Gesuchten Medikament");
 									kategorie = scanner.next();
-									anwendung.suchen(0, null, kategorie);
+									anwendung.suchen( kategorie);
 									
 								}
 								else if(auswahl == 4) {
