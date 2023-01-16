@@ -79,8 +79,10 @@ public class Medikamente {
 
       }
       else {
-
+        System.out.println("-----------------------------------");
         System.out.println("Es gibt nicht genügend Medikamente.");
+        System.out.println("-----------------------------------");
+
 
       }
 

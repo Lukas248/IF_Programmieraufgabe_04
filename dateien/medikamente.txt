@@ -1,4 +1,4 @@
 Id: 1000 Name: Aspirin500 Kategorie: Schmerzmittel Preis: 5.8 Euro Anzahl: 20 Stueck 
 Id: 1001 Name: Ibuprofen400 Kategorie: Schmerzmittel Preis: 4.2 Euro Anzahl: 5 Stueck 
 Id: 1002 Name: Cetrizien Kategorie: Antihistaminikum Preis: 3.5 Euro Anzahl: 17 Stueck 
-Id: 1003 Name: Penicillin Kategorie: Antibiotika Preis: 0.0 Euro Anzahl: 35 Stueck 
+Id: 1003 Name: Penicillin Kategorie: Antibiotika Preis: 0.0 Euro Anzahl: 20 Stueck 

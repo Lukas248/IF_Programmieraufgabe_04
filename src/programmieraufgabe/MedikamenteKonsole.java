@@ -103,6 +103,7 @@ public class MedikamenteKonsole {
 								System.out.println("2. Medikamenten-Name");
 								System.out.println("3. Medikamenten-Katgeorie");
 								System.out.println("4. Alle Medikamente suchen");
+								System.out.println("5. Zurück");
 								System.out.println("-----------------------------");
 								auswahl = scanner.nextInt();
 
@@ -139,7 +140,11 @@ public class MedikamenteKonsole {
 									fehler = false;
 
 								}
+								else if(auswahl == 5) {
+									
+									fehler = false;
 
+								}
 								else {
 									System.out.println("Falsche Eingabe.");
 									fehler = true;
@@ -194,15 +199,35 @@ public class MedikamenteKonsole {
 
 						try {
 
+							
 							System.out.println("------------------------------------------------------");
 							System.out.println("Geben Sie die Id des Medikament das Sie löschen wollen");
-							auswahl = scanner.nextInt();
-							anwendung.loeschen(auswahl);
-							System.out.println("-------------------------------------------------------");
-							System.out.println("Das Medikament wurde gelöscht werden!");
-							System.out.println("-------------------------------------------------------");
+							System.out.println("------------------------------------------------------");
+							id = scanner.nextInt();
+							name=Integer.toString(id);
+							anwendung.suchen(name);
 
-							fehler = false;
+							System.out.println("----------------------------------------------------------------------");
+							System.out.println("Sind Sie sicher Sie möchten das Medikament löschen?");
+							System.out.println("Wenn Sie das Medikament löschen wollen, dann geben Sie die 0 ein");
+							System.out.println("Wenn Sie das Medikament NICHT löschen wollen, dann geben Sie die 1 ein");
+							System.out.println("----------------------------------------------------------------------");
+
+							auswahl = scanner.nextInt();
+							if(auswahl == 0){
+								anwendung.loeschen(id);
+								System.out.println("-------------------------------------------------------");
+								System.out.println("Das Medikament wurde gelöscht!");
+								System.out.println("-------------------------------------------------------");
+
+								fehler = false;
+							}
+							else if(auswahl == 1){
+								System.out.println("-------------------------------------------------------");
+								System.out.println("Der Prozess wurde abgebrochen!");
+								System.out.println("-------------------------------------------------------");
+								fehler = false;
+							}
 							
 
 						}catch(NumberFormatException e) {
@@ -232,7 +257,7 @@ public class MedikamenteKonsole {
 								System.out.println("------------------------------------");
 
 								id = scanner.nextInt();
-								
+								name = Integer.toString(id);
 								if(auswahl == 1) {
 
 									System.out.println("--------------------------------------------");
@@ -240,6 +265,9 @@ public class MedikamenteKonsole {
 									System.out.println("--------------------------------------------");
 									anzahl = scanner.nextInt(); 
 									anwendung.verkaufen(id,anzahl);
+									System.out.println("--------------------------------------------");
+									anwendung.suchen(name);
+
 									fehler = false;
 								
 									
@@ -252,6 +280,8 @@ public class MedikamenteKonsole {
 									System.out.println("--------------------------------------------");
 									anzahl = scanner.nextInt(); 
 									anwendung.einkaufen(id,anzahl);
+									System.out.println("--------------------------------------------");
+									anwendung.suchen(name);
 
 								}
 								else {
